@@ -1,0 +1,106 @@
+/* =========================== */
+/*        Dark Theme           */
+/*   Updated by ChatGPT Pro   */
+/* =========================== */
+body.dark-theme {
+  --primary-color: #00e5ff;
+  --secondary-color: #b388ff;
+  --background-color: #0c1a33;
+  --surface-color: #003049;
+  --text-color: #ccd6f6;
+  --heading-color: #e0eafb;
+  --navbar-bg-color: rgba(12, 26, 51, 0.92);
+  --shadow-color: rgba(0, 229, 255, 0.15);
+  --alert-color: #ffcd38;
+
+  --skill-card-color: linear-gradient(135deg, #102542, #1b2b4c); /* নীল থেকে গাঢ় নীল-সায়ান */
+
+  /* Cyber Glow (Dark) */
+  --cyber-bg: #001f2f;
+  --cyber-primary: #00e5ff;
+  --cyber-primary-rgb: 0, 229, 255;
+  --cyber-border: rgba(0, 229, 255, 0.5);
+  --cyber-text: #e0eafb;
+  --cyber-secondary: #ff007f;
+
+  /* Project Card */
+  --card-bg-color: #182944;
+  --card-details-bg-color: #111e36;
+  --card-text-color: #ffffff;
+  --project-overlay-start: rgba(0, 80, 100, 0.9);
+  --project-overlay-end: rgba(0, 0, 0, 0.4);
+  --project-overlay-hover-start: rgba(0, 0, 0, 0.95);
+  --project-overlay-hover-end: rgba(0, 0, 0, 0.2);
+  --project-title: var(--primary-color);
+  --icon-color: #ffffff;
+
+  /* Contact Section */
+  --contact-card-bg: rgba(15, 10, 45, 0.8);
+  --contact-heading-color: #ffffff;
+  --contact-info-h5-color: #d3e3fd;
+  --form-control-text-color: #e0eafb;
+  --form-label-color: rgba(255, 255, 255, 0.6);
+  --autofill-text-color: #e0eafb;
+  --alert-success-text-color: #4caf50;
+  --alert-success-border-color: #4caf50;
+  --alert-success-bg-color: rgba(76, 175, 80, 0.15);
+  --alert-danger-text-color: #e53935;
+  --alert-danger-border-color: #e53935;
+  --alert-danger-bg-color: rgba(229, 57, 53, 0.15);
+
+  /* Footer Section */
+  --footer-bg: #06051b;
+  --copyright-text-color: rgba(255, 255, 255, 0.7);
+  --made-with-text-color: rgba(255, 255, 255, 0.5);
+}
+
+/* নতুন লাইট থিম: "Clean & Modern" */
+body.light-theme {
+  --primary-color: #007bff;      /* শান্ত নীল - আগের মতোই */
+  --secondary-color: #6a6ee0;    /* উজ্জ্বল মিডিয়াম ব্লু - আরও আকর্ষণীয় */
+  --background-color: #f8faff;  /* প্রায় সাদা ব্যাকগ্রাউন্ড - আরও ফ্রেশ */
+  --surface-color: #ffffff;     /* সাদা কার্ড - পরিষ্কার */
+  --text-color: #343a40;         /* গাঢ় ধূসর টেক্সট - হাই কনট্রাস্ট */
+  --heading-color: #212529;      /* হেডিংয়ের জন্য আরও গাঢ় ধূসর - স্পষ্ট */
+  --navbar-bg-color: rgba(248, 250, 255, 0.9);
+  --shadow-color: rgba(0, 123, 255, 0.1);
+  --alert-color: #ffc107;
+--skill-card-color: linear-gradient(135deg, #f5f5f5,#007bff39); /* নীল থেকে মিডিয়াম ব্লু গ্রেডিয়েন্ট */
+
+  /* Cyber Glow থিমের সমতুল্য লাইট থিম কালার (উন্নত) */
+  --cyber-bg: #e9f2f7; /* হালকা নীল */
+  --cyber-primary: #007bff;
+  --cyber-primary-rgb: 0, 123, 255;
+  --cyber-border: rgba(0, 123, 255, 0.3);
+  --cyber-text: #495057; /* গাঢ় ধূসর টেক্সট */
+  --cyber-secondary: #d81b60; /* ফুটারে একটি উজ্জ্বল গোলাপী */
+
+  /* Project Card কালার */
+  --card-bg-color: #ffffff;
+  --card-details-bg-color: #f0f3f6; /* হালকা ধূসর-নীল */
+  --card-text-color: #ffffff;
+  --project-overlay-start: rgb(0,121,130); /* গাঢ় নীল ওভারলে */
+  --project-overlay-end: rgba(0, 100, 200, 0.1);
+  --project-overlay-hover-start: rgba(0, 0, 0, 0.85);
+  --project-overlay-hover-end: rgba(0, 0, 0, 0.2);
+  --icon-color: #ffffff;
+  --project-title:#ffffff
+  /* Contact Section কালার */
+  --contact-card-bg: rgba(255, 255, 255, 0.8);
+  --contact-heading-color: #212529;
+  --contact-info-h5-color: #343a40;
+  --form-control-text-color: #343a40;
+  --form-label-color: rgba(52, 58, 64, 0.6);
+  --autofill-text-color: #343a40;
+  --alert-success-text-color: #38b000;
+  --alert-success-border-color: #38b000;
+  --alert-success-bg-color: rgba(56, 176, 0, 0.15);
+  --alert-danger-text-color: #e63946;
+  --alert-danger-border-color: #e63946;
+  --alert-danger-bg-color: rgba(230, 57, 70, 0.15);
+
+  /* Footer Section কালার */
+  --footer-bg: #e2e8f0; /* হালকা ফুটার ব্যাকগ্রাউন্ড */
+  --copyright-text-color: rgba(52, 58, 64, 0.7);
+  --made-with-text-color: rgba(52, 58, 64, 0.5);
+}

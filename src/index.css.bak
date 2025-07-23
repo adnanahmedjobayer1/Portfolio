@@ -1,0 +1,161 @@
+/* src/App.css */
+
+/* src/App.css */
+
+/* আগের CSS এর নিচে এই কোডগুলো যোগ করুন */
+
+/* Navbar এর জন্য Translucent Dark background */
+.bg-dark-trans {
+  background-color: rgba(22, 33, 62, 0.85) !important;
+  backdrop-filter: blur(10px);
+}
+
+.theme-icon-link svg {
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.theme-icon-link:hover svg {
+  transform: scale(1.2) rotate(15deg);
+}
+
+/* Modal Customization */
+.modal-header-custom, .modal-body-custom {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header-custom .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Theme List in Modal */
+.theme-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.theme-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  margin-bottom: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.theme-list-item:hover, .theme-list-item:focus {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border-color: var(--primary-color);
+}
+
+.theme-list-item .theme-name {
+  font-weight: 500;
+}
+
+.swatch-container {
+  display: flex;
+}
+
+.theme-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: inline-block;
+}
+/* src/App.css */
+:root {
+  --primary-color: #00d8ff;
+  --secondary-color: #282c34;
+  --background-color: #20232a;
+  --text-color: #ffffff;
+  --heading-font: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--heading-font);
+}
+
+/* এখন .navbar-brand, .nav-link::after ইত্যাদিতে হার্ড-কোডেড রঙের পরিবর্তে ভেরিয়েবল ব্যবহার করুন */
+.navbar-brand {
+  color: var(--primary-color) !important;
+}
+.nav-link::after {
+  background-color: var(--primary-color);
+}
+/* বেসিক স্টাইল */
+body {
+  font-family: 'Poppins', sans-serif; /* একটি সুন্দর ফন্ট ব্যবহার করা হলো */
+}
+
+/* সেকশনগুলোর জন্য প্যাডিং */
+section {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+/* ট্রানজিশন সহ নেভিগেশন বার */
+.transition-navbar {
+  transition: background-color 0.4s ease-in-out;
+}
+
+/* নেভিগেশন বারের ব্র্যান্ড/লোগো স্টাইল */
+.navbar-brand {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: #00d8ff !important; /* একটি আকর্ষণীয় রঙ */
+}
+
+/* নেভিগেশন লিঙ্ক স্টাইল */
+.nav-link {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-bottom: 8px !important;
+  transition: color 0.3s ease;
+}
+
+/* হোভার করলে আন্ডারলাইন অ্যানিমেশন */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00d8ff;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* একটিভ লিঙ্কের রঙ */
+.nav-link.active {
+  color: #ffffff !important;
+}
+
+/* হোভার করলে আইকন এবং টেক্সটের রঙ পরিবর্তন */
+.nav-link:hover {
+  color: #f0f0f0 !important;
+}
+
+/* Navbar Toggle আইকনের রঙ পরিবর্তন (মোবাইল ভিউ) */
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 216, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler {
+  border-color: #00d8ff;
+}

@@ -1,0 +1,51 @@
+// src/App.js
+
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Home from './components/Home';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects'; // Projects কম্পোনেন্ট ইম্পোর্ট করুন
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Contact from './components/Contact';
+import './App.css';
+
+const Section = ({ id, title }) => (
+  <section id={id}>
+    <div className="container text-center">
+      <h1 className="display-4 fw-bold">{title}</h1>
+    </div>
+  </section>
+);
+
+function App() {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+  useEffect(() => {
+    document.body.className = '';
+    document.body.classList.add(`${theme}-theme`);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
+
+  return (
+    <div className="App">
+      <Header onThemeToggle={toggleTheme} theme={theme} />
+      
+      <main>
+        <Home />
+        <About />
+        <Skills />
+        
+        {/* পুরনো Section এর পরিবর্তে নতুন Projects কম্পোনেন্ট ব্যবহার করুন */}
+        <Projects /> 
+        >Contact />
+      </main>
+    </div>
+  );
+}
+
+export default App;

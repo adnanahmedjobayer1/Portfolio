@@ -1,0 +1,736 @@
+/* =================================================================== */
+/* ফাইল: src/App.css (মূল স্টাইল)                    */
+/* =================================================================== */
+
+/* --- ১. নতুন এবং উন্নত কালার ভেরিয়েবল --- */
+
+/* নতুন ডার্ক থিম: "Cyber Glow" */
+
+/* --- ২. সাধারণ (Global) স্টাইল --- */
+/* (এই অংশ অপরিবর্তিত থাকবে কারণ এটি ভ্যারিয়েবল ব্যবহার করে) */
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--heading-color);
+  position: relative;
+  padding-bottom: 15px;
+  display: inline-block;
+  font-size: 2.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+section {
+  padding: 100px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+  overflow: hidden;
+}
+
+/* --- ৩. নেভিগেশন বার (Navbar) --- */
+/* (এই অংশ অপরিবর্তিত থাকবে কারণ এটি ভ্যারিয়েবল ব্যবহার করে) */
+.navbar-dark-custom .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-dark-custom .custom-toggler {
+    border-color: var(--primary-color) !important;
+}
+
+.navbar-light-custom .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.navbar-light-custom .custom-toggler {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.navbar {
+  background-color: transparent !important;
+  transition: background-color 0.4s ease-in-out !important;
+  padding: 1rem 0;
+}
+
+.navbar.navbar-scrolled {
+  background-color: var(--navbar-bg-color) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--heading-color) !important;
+  position: relative;
+  padding: 8px !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.custom-toggler { border: 1px solid var(--primary-color); }
+.theme-icon-link svg { color: var(--primary-color); }
+
+/* =================================================================== */
+/* ফাইল: src/components/Home.css                     */
+/* =================================================================== */
+
+.home-section {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.home-intro h1 .highlight { color: var(--primary-color); }
+
+/* পরিবর্তিত: secondary-color এর পরিবর্তে primary-color ব্যবহার করা হয়েছে */
+.type-animation-text {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.profile-img {
+  max-width: 350px;
+  border-radius: 50%;
+  border: 7px solid var(--surface-color);
+  box-shadow: 0 0 50px var(--primary-color), 0 0 25px var(--secondary-color);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.cta-button {
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-width: 2px;
+}
+
+.btn-primary.cta-button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-color);
+}
+.btn-primary.cta-button:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+.btn-outline-primary.cta-button {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-outline-primary.cta-button:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .home-section { text-align: center; }
+  .home-intro { order: 2; margin-top: 40px; }
+  .profile-img { order: 1; max-width: 250px; }
+  .cta-buttons { flex-direction: column; align-items: center; gap: 1rem; }
+}
+
+/* =================================================================== */
+/* ফাইল: src/components/About.css                    */
+/* =================================================================== */
+
+.about-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-image-container::after {
+  content: '';
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  opacity: 0.15;
+  border-radius: 20px;
+  z-index: 0;
+  transform: rotate(-8deg);
+  transition: transform 0.4s ease;
+}
+.about-image-container:hover::after { transform: rotate(0deg); }
+.about-image {
+  max-width: 350px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+.about-description { font-size: 1.1rem; line-height: 1.8; }
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  text-align: center;
+  margin: 40px 0;
+}
+.stat-card {
+  background-color: var(--surface-color);
+  padding: 20px;
+  border-radius: 15px;
+  border-bottom: 4px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+.stat-card:hover { transform: translateY(-5px); }
+.stat-icon { font-size: 2.2rem; color: var(--secondary-color); }
+.stat-value { font-size: 2rem; }
+.tab-buttons { margin-bottom: 20px; }
+.tab-link {
+  background: none; border: none; color: var(--text-color);
+  font-size: 1.1rem; font-weight: 600; margin-right: 30px;
+  position: relative; padding-bottom: 10px; cursor: pointer;
+  opacity: 0.7; transition: all 0.3s ease;
+}
+.tab-link:hover { opacity: 1; }
+.tab-link.active { color: var(--primary-color); opacity: 1; }
+.tab-link.active::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 3px; background-color: var(--primary-color);
+}
+.timeline { list-style: none; padding-left: 20px; border-left: 2px solid var(--primary-color); }
+.timeline li {
+  position: relative; margin-bottom: 20px;
+  padding: 15px; background-color: var(--surface-color); border-radius: 10px;
+}
+.timeline li::before {
+  content: ''; position: absolute; left: -29px; top: 18px;
+  width: 15px; height: 15px; border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--background-color);
+}
+.timeline-company, .timeline-institution { color: var(--primary-color); }
+
+/* =================================================================== */
+/* ফাইল: src/components/Skills.css                    */
+/* =================================================================== */
+
+.skill-category-title {
+  color: var(--heading-color);
+  border-bottom: 2px solid var(--surface-color);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  background-image: var(--skill-card-color);
+  border-radius: 15px;
+  padding: 25px 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px var(--shadow-color);
+}
+.skill-icon { font-size: 3.5rem; margin-bottom: 15px; }
+.skill-card h6 { font-weight: 500; font-size: 0.9rem; }
+.dark-theme .skill-icon svg[color="#000000"] { color: #ffffff !important; }
+
+/* =================================================================== */
+/* ফাইল: src/components/Projects.css                   */
+/* =================================================================== */
+
+/* Projects Section General Styles */
+.projects-section {
+  padding: 80px 0;
+  background-color: var(--background-color);
+}
+
+/* Filter Buttons */
+.filter-buttons .filter-btn {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 10px 25px;
+  margin: 0 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filter-buttons .filter-btn:hover,
+.filter-buttons .filter-btn.active {
+  background-color: var(--primary-color);
+  color: var(--background-color); /* পরিবর্তিত */
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+/* New Project Card Styles */
+.project-card-wrapper {
+  background-color: var(--card-bg-color);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease-in-out;
+}
+
+.project-card-wrapper.expanded {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-summary {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top,var(--project-overlay-start), var(--project-overlay-end));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  color: var(--icon-color);
+  transition: background 0.4s ease;
+}
+
+.project-summary:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-summary:hover .project-overlay {
+    background: linear-gradient(to top, var(--project-overlay-hover-start), var(--project-overlay-hover-end));
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+   color: var(--project-title);
+}
+
+.project-short-desc {
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+/* Expand Icon */
+.expand-icon-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color:var(--project-overlay-start);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+.expand-icon {
+    font-size: 24px;
+    color: var(--project-title );
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.expand-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* Collapsible Details Section */
+.project-details-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease-in-out;
+  background-color: var(--card-details-bg-color);
+}
+
+.project-card-wrapper.expanded .project-details-container {
+  max-height: 800px;
+}
+
+.project-details-content {
+  padding: 30px;
+  color: var(--text-color);
+}
+
+.project-carousel .carousel-item img {
+    border-radius: 10px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.project-tags .tag {
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+
+
+/* =================================================================== */
+/* ফাইল: src/components/Contact.css                   */
+/* =================================================================== */
+
+.contact-section {
+  padding: 80px 0;
+  background-color: var(--cyber-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(var(--cyber-primary-rgb), 0.1), transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+}
+
+.contact-wrapper {
+  background: var(--contact-card-bg);
+  border: 1px solid var(--cyber-border);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  box-shadow: 0 0 40px rgba(var(--cyber-primary-rgb), 0.2);
+}
+
+.contact-info-wrapper {
+  border-right: 1px solid var(--cyber-border);
+  padding-right: 40px;
+}
+@media (max-width: 991.98px) {
+  .contact-info-wrapper {
+    border-right: none;
+    border-bottom: 1px solid var(--cyber-border);
+    padding-right: 0;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.contact-heading {
+  color: var(--contact-heading-color);
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px var(--cyber-primary);
+}
+.contact-subheading {
+  color: var(--cyber-text);
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+.contact-info-card:hover {
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(var(--cyber-primary-rgb), 0.1);
+  color: var(--cyber-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  flex-shrink: 0;
+  border: 1px solid var(--cyber-border);
+}
+.contact-text h5 {
+  color: var(--contact-info-h5-color);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.contact-text p {
+  margin: 0;
+  color: var(--cyber-text);
+}
+
+.social-links-contact {
+  display: flex;
+  gap: 15px;
+}
+.social-links-contact a {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cyber-primary);
+  border: 1px solid var(--cyber-border);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.social-links-contact a:hover {
+  background-color: var(--cyber-primary);
+  color: var(--cyber-bg);
+  box-shadow: 0 0 15px var(--cyber-primary);
+  transform: translateY(-3px);
+}
+
+.contact-form-wrapper {
+  padding-left: 40px;
+}
+@media (max-width: 991.98px) {
+  .contact-form-wrapper { padding-left: 0; }
+}
+
+.form-floating-group {
+  position: relative;
+}
+.form-floating-group .form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--cyber-border);
+  border-radius: 0;
+  color: var(--form-control-text-color);
+  padding: 10px 0;
+  transition: border-color 0.3s ease;
+}
+.form-floating-group .form-control:focus {
+  box-shadow: none;
+  border-bottom-color: var(--cyber-primary);
+}
+.form-floating-group .form-label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: var(--form-label-color);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  top: -15px;
+  font-size: 0.8rem;
+  color: var(--cyber-primary);
+}
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--cyber-bg) inset !important;
+    -webkit-text-fill-color: var(--autofill-text-color) !important;
+}
+
+
+.cyber-submit-btn {
+  background: var(--cyber-primary);
+  color: var(--cyber-bg);
+  border: 1px solid var(--cyber-primary);
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.cyber-submit-btn:hover {
+  box-shadow: 0 0 20px var(--cyber-primary);
+  transform: translateY(-3px);
+}
+.cyber-submit-btn:disabled {
+  background: rgba(var(--cyber-primary-rgb), 0.5);
+  cursor: not-allowed;
+}
+
+.form-status-alert {
+  background: transparent;
+  border-width: 2px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.form-status-alert.alert-success {
+  color: var(--alert-success-text-color);
+  border-color: var(--alert-success-border-color);
+  background-color: var(--alert-success-bg-color);
+}
+.form-status-alert.alert-danger {
+  color: var(--alert-danger-text-color);
+  border-color: var(--alert-danger-border-color);
+  background-color: var(--alert-danger-bg-color);
+}
+
+/* --- ফুটার সেকশন সাইবার গ্লো স্টাইল --- */
+.footer-section {
+  background-color: var(--footer-bg);
+  padding: 40px 0 20px 0;
+  text-align: center;
+  border-top: 1px solid var(--cyber-border);
+  box-shadow: 0 -5px 20px rgba(var(--cyber-primary-rgb), 0.1);
+}
+
+.footer-social-icons {
+  margin-bottom: 20px;
+}
+
+.footer-social-icons a {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 1.5rem;
+  color: var(--cyber-text);
+  transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+  color: var(--cyber-primary);
+  transform: translateY(-5px);
+  text-shadow: 0 0 10px var(--cyber-primary);
+}
+
+.footer-nav-links {
+  margin-bottom: 20px;
+}
+
+.footer-nav-links a {
+  color: var(--cyber-text);
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-links a:hover {
+  color: var(--cyber-secondary);
+}
+
+.copyright-text {
+  margin: 0;
+  color: var(--copyright-text-color);
+  font-size: 0.9rem;
+}
+
+.made-with-text {
+  margin-top: 10px;
+  color: var(--made-with-text-color);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* --- উপরে ফিরে যান বাটন --- */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--cyber-primary);
+  color: var(--cyber-bg);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 0 15px var(--cyber-primary);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  box-shadow: 0 0 25px var(--cyber-primary);
+  transform: scale(1.1);
+}
