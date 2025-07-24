@@ -7,18 +7,19 @@ import { TypeAnimation } from 'react-type-animation';
 import { Fade } from "react-awesome-reveal";
 import { FaArrowRight } from 'react-icons/fa';
 
-import profileImage from '../images/profile.png'; // আপনার ছবি assets ফোল্ডারে রাখুন
+import profileImage from '../images/profile.png'; // আপনার প্রোফাইল ছবি
 
 function Home() {
   return (
-    <section id="home" className="home-section d-flex align-items-center mt-4">
+    <section id="home" className="home-section d-flex align-items-center mt-4" aria-labelledby="main-heading">
       <Container>
         <Row className="align-items-center">
           {/* বাম দিকের টেক্সট কন্টেন্ট */}
           <Col md={7} className="home-intro">
             <Fade direction="left" triggerOnce>
-              <h1 className="display-4 fw-bold">
-              <span className="highlight">আদনান আহমেদ </span>
+              {/* পরিবর্তন ১: h1 ট্যাগকে আপনার পূর্ণ নাম দিয়ে শক্তিশালী করা */}
+              <h1 id="main-heading" className="display-4 fw-bold">
+                <span className="highlight">আদনান আহমেদ</span>
               </h1>
               <h2 className="mb-4 workTopic">
                 <TypeAnimation
@@ -42,11 +43,12 @@ function Home() {
               <div className="cta-buttons">
                 <Link to="projects" smooth={true} duration={500} offset={-70}>
                   <Button variant="primary" size="lg" className="me-3 cta-button mb-3">
-                    আমার প্রজেক্টস <FaArrowRight className="ms-2" />
+                    আমার প্রজেক্টস <FaArrowRight className="ms-2" aria-hidden="true" />
                   </Button>
                 </Link>
-                {/* আপনার সিভি ফাইলের লিঙ্ক এখানে দিন */}
-                <a href="/path-to-your-cv.pdf" download>
+                {/* পরিবর্তন ২: সিভি ডাউনলোড লিঙ্ক সেট করা */}
+                {/* নির্দেশিকা: আপনার CV ফাইলটি public ফোল্ডারের মধ্যে রাখুন */}
+                <a href="/Adnan_Ahmed_Jobayer_CV.pdf" download>
                   <Button variant="outline-primary" size="lg" className="cta-button">
                     সিভি ডাউনলোড
                   </Button>
@@ -56,11 +58,12 @@ function Home() {
           </Col>
 
           {/* ডান দিকের ছবি */}
-          <Col md={5} className="text-center   ">
+          <Col md={5} className="text-center">
             <Fade direction="right" triggerOnce>
+              {/* পরিবর্তন ৩: ছবির alt টেক্সটকে আরও তথ্যপূর্ণ করা */}
               <img 
                 src={profileImage} 
-                alt="আপনার প্রোফাইল ছবি" 
+                alt="আদনান আহমেদ যুবায়ের, রিঅ্যাক্ট ডেভেলপার" 
                 className="img-fluid profile-img"
               />
             </Fade>

@@ -2,34 +2,37 @@
 
 import React, { useState, useRef } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaFacebook, FaTiktok, FaWhatsapp } from 'react-icons/fa'; // Updated imports
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaFacebook, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
   const form = useRef();
   const [formStatus, setFormStatus] = useState({ status: 'idle', message: '' });
 
-  // EmailJS এর তথ্য এখানে দিন
-  const serviceID = 'আপনার_SERVICE_ID';
-  const templateID = 'আপনার_TEMPLATE_ID';
-  const publicKey = 'আপনার_PUBLIC_KEY';
+  // --- গুরুত্বপূর্ণ ---
+  // আপনার আসল EmailJS তথ্য এখানে দিন
+  const serviceID = 'YOUR_SERVICE_ID';
+  const templateID = 'YOUR_TEMPLATE_ID';
+  const publicKey = 'YOUR_PUBLIC_KEY';
 
   const sendEmail = (e) => {
     e.preventDefault();
     setFormStatus({ status: 'sending', message: 'বার্তা পাঠানো হচ্ছে...' });
 
-    // নিচের লাইনটি ডেমো পারপাসে কমেন্ট করা আছে। আপনার credential দিয়ে আনকমেন্ট করুন।
-    // emailjs.sendForm(serviceID, templateID, form.current, publicKey)
-    //   .then((result) => {
-    //     setFormStatus({ status: 'success', message: 'আপনার বার্তা সফলভাবে পাঠানো হয়েছে!' });
-    //     form.current.reset();
-    //     setTimeout(() => setFormStatus({ status: 'idle', message: '' }), 5000);
-    //   }, (error) => {
-    //     setFormStatus({ status: 'error', message: 'একটি সমস্যা হয়েছে, অনুগ্রহ করে আবার চেষ্টা করুন।' });
-    //     setTimeout(() => setFormStatus({ status: 'idle', message: '' }), 5000);
-    //   });
+    // নিচের কোড আনকমেন্ট করে আপনার আসল credential ব্যবহার করুন
+    /*
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey)
+      .then((result) => {
+        setFormStatus({ status: 'success', message: 'আপনার বার্তা সফলভাবে পাঠানো হয়েছে!' });
+        form.current.reset();
+        setTimeout(() => setFormStatus({ status: 'idle', message: '' }), 5000);
+      }, (error) => {
+        setFormStatus({ status: 'error', message: 'একটি সমস্যা হয়েছে, অনুগ্রহ করে আবার চেষ্টা করুন।' });
+        setTimeout(() => setFormStatus({ status: 'idle', message: '' }), 5000);
+      });
+    */
 
-    // ডেমো পারপাসে সিমুলেশন
+    // সিমুলেশন কোড (বাস্তব ব্যবহারের সময় এটি মুছে ফেলুন)
      setTimeout(() => {
          setFormStatus({ status: 'success', message: 'আপনার বার্তা সফলভাবে পাঠানো হয়েছে!' });
          form.current.reset();
@@ -38,53 +41,52 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    // পরিবর্তন ১: Accessibility-র জন্য aria-labelledby যোগ করা হলো
+    <section id="contact" className="contact-section" aria-labelledby="contact-section-title">
       <Container>
-        <h2 className="section-title text-center mb-5" data-aos="fade-up">
+        <h2 id="contact-section-title" className="section-title text-center mb-5" data-aos="fade-up">
           যোগাযোগ করুন
         </h2>
         <div className="contact-wrapper" data-aos="fade-up" data-aos-delay="200">
           <Row>
-            {/* বাম দিকের তথ্য */}
             <Col lg={5} className="contact-info-wrapper">
               <h3 className="contact-heading">যোগাযোগের তথ্য</h3>
               <p className="contact-subheading">
                 যেকোনো প্রয়োজনে বা আলোচনার জন্য নিচে দেওয়া উপায়ে আমার সাথে যোগাযোগ করতে পারেন।
               </p>
+              {/* পরিবর্তন ২: ইমেইল এবং ফোন নম্বর ক্লিকযোগ্য করা হলো */}
               <div className="contact-info-card" data-aos="fade-right" data-aos-delay="300">
-                <div className="contact-icon"><FaEnvelope /></div>
+                <div className="contact-icon"><FaEnvelope aria-hidden="true" /></div>
                 <div className="contact-text">
                   <h5>ইমেইল</h5>
-                  <p>akborhosen002@gmil.com</p>
+                  {/* নোট: আপনার ইমেইলের বানান চেক করুন (gmil -> gmail) */}
+                  <a href="mailto:akborhosen002@gmail.com">akborhosen002@gmail.com</a>
                 </div>
               </div>
               <div className="contact-info-card" data-aos="fade-right" data-aos-delay="400">
-                <div className="contact-icon"><FaPhoneAlt /></div>
+                <div className="contact-icon"><FaPhoneAlt aria-hidden="true" /></div>
                 <div className="contact-text">
                   <h5>ফোন</h5>
-                  <p>+880 13100-25022</p>
+                  <a href="tel:+8801310025022">+880 13100-25022</a>
                 </div>
               </div>
               <div className="contact-info-card" data-aos="fade-right" data-aos-delay="500">
-                <div className="contact-icon"><FaMapMarkerAlt /></div>
+                <div className="contact-icon"><FaMapMarkerAlt aria-hidden="true" /></div>
                 <div className="contact-text">
                   <h5>ঠিকানা</h5>
                   <p>ঢাকা, বাংলাদেশ</p>
                 </div>
               </div>
               <div className="social-links-contact mt-4" data-aos="fade-up" data-aos-delay="600">
-                {/* Facebook Link */}
                 <a href="https://www.facebook.com/adnanahmedjobayer" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
-                {/* TikTok Link */}
                 <a href="https://www.tiktok.com/@adnanahmedjobayer" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><FaTiktok /></a>
-                {/* WhatsApp Link */}
                 <a href="https://wa.me/8801310025022" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
               </div>
             </Col>
             
-            {/* ডান দিকের ফর্ম */}
             <Col lg={7} className="contact-form-wrapper">
               <Form ref={form} onSubmit={sendEmail}>
+                {/* ফর্মের অংশ অপরিবর্তিত, কারণ এটি ইতিমধ্যেই ভালোভাবে লেবেল করা আছে */}
                 <Row>
                   <Col md={6} data-aos="fade-up" data-aos-delay="300">
                     <Form.Group className="mb-4 form-floating-group">
@@ -117,6 +119,7 @@ function Contact() {
                   </Button>
                 </div>
                 {formStatus.status !== 'idle' &&
+                  // এই Alert কম্পোনেন্টটি screen reader এর জন্য ভালো (role="alert")
                   <Alert 
                     variant={formStatus.status === 'success' ? 'success' : 'danger'} 
                     className="mt-3 form-status-alert">
